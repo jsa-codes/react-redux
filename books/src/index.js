@@ -1,6 +1,7 @@
+import './index.css'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App'
+import {App} from './App'
 
 // Get the root element out of the html document
 const el = document.getElementById('root');
