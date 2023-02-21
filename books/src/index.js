@@ -12,8 +12,7 @@ const root = ReactDOM.createRoot(el)
 
 // Render out App component
 root.render(
-    <Provider >
+    <Provider>
         <App />
     </Provider>
-
 )

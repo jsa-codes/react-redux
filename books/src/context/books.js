@@ -10,10 +10,11 @@ function Provider({ children }) {
     // The value of 'count' 
     // And an object called incrementCount that has a value of a function, that when called will call setCount, which will increment the count by one.
     const valueToShare = {
+        // Because value and key are the same, we can condense it down to just 'count'
         count,
         incrementCount: () => {
             setCount(count + 1);
-        }
+        },
     }
 
     return (
@@ -23,5 +24,7 @@ function Provider({ children }) {
     )
 }
 
+// Named export
 export { Provider }
+// Default export
 export default BooksContext
