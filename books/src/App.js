@@ -17,17 +17,33 @@ export const App = () => {
         fetchBooks()
     }, [])
 
-    const editBookById = (id, newTitle) => {
+    // EDIT a Book by 'id'
+    // Making a GET request
+        // Find the book with a particular 'id'
+    const editBookById = async (id, newTitle) => {
+
+        const response = await axios.put(`http://localhost:3001/books/${id}`, {
+            // BODY of the request
+            title: newTitle
+        })
+
+        
+
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
-                return { ...book, title: newTitle }
+                // Take all the different properties (aka - response.data = "key: value pairs") from the book object, and add it to the book object
+                return { ...book, ...response.data }
             }
             return book
         })
         setBooks(updatedBooks)
     }
 
-    const deleteBookById = (id) => {
+    // DELETE a book by 'id'
+    const deleteBookById = async (id) => {
+
+        await axios.delete(`http://localhost:3001/books/${id}`)
+
         const updatedBooks = books.filter((book) => {
             return book.id !== id
         })
@@ -35,6 +51,7 @@ export const App = () => {
         setBooks(updatedBooks)
     }
 
+    // CREATE a Book
     const createBook = async (title) => {
 
         const response = await axios.post('http://localhost:3001/books', {
