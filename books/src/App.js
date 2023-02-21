@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { BookCreate } from './components/BookCreate'
-import { BookList } from './components/BookList'
+import BookCreate  from './components/BookCreate'
+import BookList  from './components/BookList'
 
-export const App = () => {
+function App() {
 
     const [books, setBooks] = useState([])
 
@@ -72,6 +72,8 @@ export const App = () => {
             <BookCreate onCreate={createBook} />
         </div>)
 }
+
+export default App
 
 
 /* 

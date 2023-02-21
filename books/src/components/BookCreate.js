@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const BookCreate = ({ onCreate }) => {
+function BookCreate({ onCreate })  {
 
     const [title, setTitle] = useState('')
 
@@ -26,3 +26,5 @@ export const BookCreate = ({ onCreate }) => {
         </div>
     )
 }
+
+export default BookCreate

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {BookEdit } from './BookEdit'
 // import { BookList } from './BookList'
 
-export const BookShow = ({ book, onEdit, onDelete }) => {
+function BookShow({ book, onEdit, onDelete }) {
 
     const [showEdit, setShowEdit] = useState(false)
 
@@ -33,3 +33,5 @@ export const BookShow = ({ book, onEdit, onDelete }) => {
         </div>
     </div>
 }
+
+export default BookShow
