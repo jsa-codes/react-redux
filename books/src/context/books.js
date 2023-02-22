@@ -69,7 +69,7 @@ function Provider({ children }) {
 
     // Context Object uses the built in Context Provider to share the state throughout the Application
     return (
-        <BooksContext.Provider value={{ valueToShare }}>
+        <BooksContext.Provider value={ valueToShare }>
             {children}
         </BooksContext.Provider>
     )
