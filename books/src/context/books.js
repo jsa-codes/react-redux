@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useCallback } from 'react';
 import axios from 'axios'
 
 // Use the createContext function to create a context object
@@ -10,11 +10,13 @@ function Provider({ children }) {
     const [books, setBooks] = useState([])
 
     // GET all books
-    const fetchBooks = async () => {
+    const fetchBooks = useCallback(async () => {
         const response = await axios.get('http://localhost:3001/books')
 
         setBooks(response.data)
-    }
+    }, [])
+
+
 
     // UPDATE book by id
     const editBookById = async (id, newTitle) => {
