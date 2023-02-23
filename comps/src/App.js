@@ -11,3 +11,19 @@ function App() {
 }
 
 export default App
+
+
+
+/* 
+PROPS for Buttons : ALL booleans
+(for false just leave button blank)
+
+- primary
+- secondary
+- success
+- warning
+- danger
+
+- outline
+- rounded
+*/
