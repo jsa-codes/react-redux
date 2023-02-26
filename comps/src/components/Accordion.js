@@ -1,4 +1,4 @@
-
+import useState from 'react'
 
 function Accordion({items}) {
 
@@ -13,4 +13,4 @@ function Accordion({items}) {
     return <div>{renderedItems}</div>
 }
 
-export default Accordion
+export default Accordion 
