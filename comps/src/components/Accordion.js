@@ -12,9 +12,10 @@ function Accordion({items}) {
                 - IF 'isExpanded' is truthy THEN we are going to get back the last truthy value
         */
 
+        const icon = <span>{isExpanded ? "DOWN" : "ARROW"}</span>
         return (
             <div key={item.id}>
-                <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+                <div onClick={() => setExpandedIndex(index)}>{icon}{item.label}</div>
                 {isExpanded && <div>{item.content}</div>}
             </div>
         )
