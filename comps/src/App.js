@@ -7,17 +7,17 @@ function App() {
         {
             id: '2347t',
             label: 'Can I use React on a piece of bread?',
-            content: 'You can use React on a piece of bread'
+            content: 'YES. You can use React on a piece of bread'
         },
         {
             id: 'eruy833',
             label: 'Can I use JSON on a piece of bread?',
-            content: 'You can use JSON on a piece of bread'
+            content: 'YES. You can use JSON on a piece of bread'
         },
         {
             id: '1238457d',
             label: 'Can I use Peanut butter on a piece of bread?',
-            content: 'You can use Peanut butter on a piece of bread'
+            content: 'YES! You can use Peanut butter on a piece of bread'
         },
      ]
 

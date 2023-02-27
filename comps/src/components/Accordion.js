@@ -1,12 +1,21 @@
-import useState from 'react'
+import {useState} from 'react'
 
 function Accordion({items}) {
 
-    const renderedItems = items.map((item) => {
+    const [expandedIndex, setExpandedIndex] = useState(0)
+
+    const renderedItems = items.map((item, index) => {
+
+        const isExpanded = index === expandedIndex 
+        /* 
+            - Create a new div called 'content'
+                - IF 'isExpanded' is truthy THEN we are going to get back the last truthy value
+        */
+
         return (
             <div key={item.id}>
-                <div>{item.label}</div>
-                <div>{item.content}</div>
+                <div onClick={() => setExpandedIndex(index)}>{item.label}</div>
+                {isExpanded && <div>{item.content}</div>}
             </div>
         )
     })
