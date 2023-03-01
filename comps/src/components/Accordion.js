@@ -1,26 +1,45 @@
-import {useState} from 'react'
+import { useState } from 'react'
+import { GoChevronDown, GoChevronLeft } from 'react-icons/go'
 
-function Accordion({items}) {
+function Accordion({ items }) {
 
-    const [expandedIndex, setExpandedIndex] = useState(0)
+    const [expandedIndex, setExpandedIndex] = useState(-1)
+
+    const handleClick = (currentIndex) => {
+        if (expandedIndex === currentIndex) {
+            setExpandedIndex(-1)
+        } else {
+            setExpandedIndex(currentIndex)
+        }
+    }
+
 
     const renderedItems = items.map((item, index) => {
 
-        const isExpanded = index === expandedIndex 
-        /* 
-            - Create a new div called 'content'
-                - IF 'isExpanded' is truthy THEN we are going to get back the last truthy value
-        */
+        // IF current index is equal to expandedIndex the set isExpanded to contain that item
+        const isExpanded = index === expandedIndex
 
-        const icon = <span>{isExpanded ? "DOWN" : "ARROW"}</span>
+
+        // Toggling Panels: Lesson 184
+        const icon = (
+            <span className='text-2xl'>{isExpanded ? <GoChevronDown /> : <GoChevronLeft />}</span>
+        )
+
+
         return (
             <div key={item.id}>
-                <div onClick={() => setExpandedIndex(index)}>{icon}{item.label}</div>
-                {isExpanded && <div>{item.content}</div>}
+                <div className="flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer"
+                    onClick={() => handleClick(index)}>
+                    {item.label}
+                    {icon}
+                </div>
+                {isExpanded && <div className='border-b p-5'>{item.content}</div>}
             </div>
         )
     })
-    return <div>{renderedItems}</div>
+    
+    return <div className='border-x border-t rounded'>{renderedItems}</div>
 }
 
-export default Accordion 
+export default Accordion
+
